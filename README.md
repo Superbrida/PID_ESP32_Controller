@@ -66,28 +66,28 @@ arduino-cli lib install OneWire
 arduino-cli lib install DallasTemperature
 
 Installation
-	1.	Clone the repository:
+1.	Clone the repository:
 git clone https://github.com/your-username/PID_ESP32_Controller.git
 cd PID_ESP32_Controller
 
-  2.	Open the project:
-	•	Open PID_ESP32_ANAOUT_POT.ino with Arduino IDE.
-	3.	Compile and upload the sketch:
-	•	Select the correct ESP32 board under Tools > Board.
-	•	Compile and upload the code to the ESP32 DevKit V1.
+2.	Open the project:
+	Open PID_ESP32_ANAOUT_POT.ino with Arduino IDE.
+3.	Compile and upload the sketch:
+	Select the correct ESP32 board under Tools > Board.
+	Compile and upload the code to the ESP32 DevKit V1.
 Usage
-	1.	Adjust the potentiometer to change the temperature setpoint.
-	2.	Monitor the serial output to check the current temperature and control output.
-	3.	Fine-tune the PID parameters in the code for better performance:
+4.	Adjust the potentiometer to change the temperature setpoint.
+5.	Monitor the serial output to check the current temperature and control output.
+6.	Fine-tune the PID parameters in the code for better performance:
 double Kp = 30.0;  // Proportional gain
 double Ki = 15.0;  // Integral gain
 double Kd = 5.0;   // Derivative gain
 
-  3.	Serial Monitor Output Example:
+7.	Serial Monitor Output Example:
 
 22.5 C | Setpoint: 23.0 C | Output: 3200 (78%)
 
-  4. Project File Structure
+8. Project File Structure
      
 PID_ESP32_Controller/
 │-- PID_ESP32_ANAOUT_POT.ino  # Main Arduino sketch
