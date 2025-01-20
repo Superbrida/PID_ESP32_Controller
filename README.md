@@ -90,7 +90,7 @@ double Kd = 5.0;   // Derivative gain
 8. Project File Structure
      
 PID_ESP32_Controller/
-│-- PID_ESP32_ANAOUT_POT.ino  # Main Arduino sketch
+│-- Code/PID_ESP32_ANAOUT_POT.ino  # Main Arduino sketch
 │-- README.md                 # Project documentation
 │-- LICENSE                   # License file 
 
