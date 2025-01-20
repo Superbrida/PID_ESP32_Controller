@@ -88,7 +88,7 @@ double Kd = 5.0;   // Derivative gain
 22.5 C | Setpoint: 23.0 C | Output: 3200 (78%)
 
   4. Project File Structure
-  5. 
+     
 PID_ESP32_Controller/
 │-- PID_ESP32_ANAOUT_POT.ino  # Main Arduino sketch
 │-- README.md                 # Project documentation
