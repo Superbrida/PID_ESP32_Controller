@@ -83,17 +83,18 @@ double Kp = 30.0;  // Proportional gain
 double Ki = 15.0;  // Integral gain
 double Kd = 5.0;   // Derivative gain
 
-  4.	Serial Monitor Output Example:
+  3.	Serial Monitor Output Example:
 
 22.5 C | Setpoint: 23.0 C | Output: 3200 (78%)
 
-  5. Project File Structure
+  4. Project File Structure
+  5. 
 PID_ESP32_Controller/
 │-- PID_ESP32_ANAOUT_POT.ino  # Main Arduino sketch
 │-- README.md                 # Project documentation
 │-- LICENSE                   # License file 
 
-Troubleshooting
+##Troubleshooting
 
 If you encounter issues, check the following:
 	•	Ensure the correct board and COM port are selected in the Arduino IDE.
