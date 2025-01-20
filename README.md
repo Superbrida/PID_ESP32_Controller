@@ -109,7 +109,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Author
 
 Fabio Bridarolli
-GitHub (https://github.com/Superbrida) | LinkedIn
+GitHub (https://github.com/Superbrida) | LinkedIn (https://www.linkedin.com/in/fabio-bridarolli)
 
 Enjoy and feel free to contribute!
  
