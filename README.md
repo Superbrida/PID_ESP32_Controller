@@ -75,7 +75,6 @@ cd PID_ESP32_Controller
 3.	Compile and upload the sketch:
 	Select the correct ESP32 board under Tools > Board.
 	Compile and upload the code to the ESP32 DevKit V1.
-Usage
 4.	Adjust the potentiometer to change the temperature setpoint.
 5.	Monitor the serial output to check the current temperature and control output.
 6.	Fine-tune the PID parameters in the code for better performance:
