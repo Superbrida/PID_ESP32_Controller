@@ -1,81 +1,114 @@
-# PID_ESP32_Controller
+# PID Control for ESP32 DevKit V1
 
-This repository contains an Arduino sketch for implementing a PID (Proportional-Integral-Derivative) control system on an ESP32 microcontroller. The code is designed to manage an analog output signal based on a potentiometer input, allowing precise control of system parameters.
+This repository contains an Arduino sketch for implementing a PID (Proportional-Integral-Derivative) control system on an **ESP32 DevKit V1** microcontroller. The code reads an analog input from a potentiometer to set the desired temperature and controls an analog output signal accordingly.
 
 ## Features
 
-- **PID Control Algorithm:** Implementation of a PID control system for precise tuning.
-- **Analog Input and Output:** Reads setpoint values from a potentiometer and controls the system output accordingly.
-- **ESP32 Compatibility:** Designed specifically for ESP32 microcontroller platforms.
-- **Customizable Parameters:** Adjustable PID tuning for different applications.
-
-## Requirements
-
-To run this project, you will need the following:
-
-- **Hardware:**
-  - ESP32 development board
-  - Potentiometer (for input)
-  - Load (for output control)
-
-- **Software:**
-  - [Arduino IDE](https://www.arduino.cc/en/software) with ESP32 board support installed
-  - Required libraries:
-    - `PID_v1` (for PID control)
-    - `AnalogWrite` (for ESP32 analog output control)
-
-## Installation
-
-1. Clone this repository to your local machine:
-
-    ```bash
-    git clone https://github.com/your-username/PID_ESP32_Controller.git
-    cd PID_ESP32_Controller
-    ```
-
-2. Open the `PID_ESP32_ANAOUT_POT.ino` file in the Arduino IDE.
-
-3. Install the required libraries via the Arduino Library Manager.
-
-4. Compile and upload the code to your ESP32 board.
-
-## Usage
-
-1. Connect the potentiometer to the analog input pin of the ESP32.
-2. Adjust the potentiometer to change the setpoint.
-3. Monitor the analog output to verify the PID response.
-4. Fine-tune the PID parameters as needed in the code:
-
-    ```cpp
-    double Kp = 2.0;  // Proportional gain
-    double Ki = 5.0;  // Integral gain
-    double Kd = 1.0;  // Derivative gain
-    ```
-
-## File Structure
-PID_ESP32_Controller/
-│– PID_ESP32_ANAOUT_POT.ino  # Main Arduino sketch
-│– README.md                 # Project documentation
-│– LICENSE                   # License file 
-
-## Troubleshooting
-
-If you experience issues, consider the following:
-
-- Ensure the correct board is selected in the Arduino IDE (`ESP32 Dev Module`).
-- Check the correct COM port is selected.
-- Verify potentiometer and load connections.
-- Adjust PID values if the response is unstable.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-**Fabio Bridarolli**  
-[LinkedIn](https://www.linkedin.com/) | [GitHub](https://github.com/your-username)
+- **PID Control Algorithm:** Efficient control for temperature management.
+- **Analog Input and Output:** Reads temperature setpoints and outputs control signals.
+- **ESP32 Compatibility:** Optimized for the ESP32 DevKit V1 board.
+- **Customizable PID Parameters:** Adjustable proportional, integral, and derivative values.
 
 ---
 
+## Required Hardware
+
+- **ESP32 DevKit V1** (ESP-WROOM-32)
+- **10KΩ potentiometer** (for input)
+- **Temperature sensor DS18B20** (for temperature monitoring)
+- **Resistor 4.7KΩ** (for DS18B20 pull-up)
+- **Connections:**
+  - **Potentiometer:** Connect to pin `34` (ADC1).
+  - **Temperature sensor:** Connect to pin `5` with a pull-up resistor to 3.3V.
+  - **Output load:** Connect to pin `25` (DAC1).
+
+---
+
+## Required Software and Libraries
+
+Make sure you have the following software and libraries installed:
+
+### 1. **Arduino IDE Setup**
+Download and install the [Arduino IDE](https://www.arduino.cc/en/software). Then, follow these steps:
+
+- Install ESP32 board support:
+  1. Go to **File > Preferences**, and in the `Additional Board Manager URLs`, add:
+
+      ```
+      https://dl.espressif.com/dl/package_esp32_index.json
+      ```
+
+  2. Go to **Tools > Board > Boards Manager**, search for **ESP32**, and install the latest version of the package.
+
+- Select the correct board settings under **Tools:**
+  - **Board:** `ESP32 Dev Module`
+  - **Flash Size:** `4MB (32Mb)`
+  - **Upload Speed:** `115200`
+  - **Partition Scheme:** `Default 4MB with spiffs`
+  - **Port:** Select the correct COM port (e.g., COM3, /dev/ttyUSB0)
+
+### 2. **Required Libraries**
+
+Install the following libraries from the Arduino Library Manager (**Sketch > Include Library > Manage Libraries...**):
+
+- **OneWire** (for DS18B20 temperature sensor)
+- **DallasTemperature** (for temperature data processing)
+
+To install via Arduino IDE:
+
+
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+Alternatively, install manually using the command line:
+
+arduino-cli lib install OneWire
+arduino-cli lib install DallasTemperature
+
+Installation
+	1.	Clone the repository:
+git clone https://github.com/your-username/PID_ESP32_Controller.git
+cd PID_ESP32_Controller
+
+  2.	Open the project:
+	•	Open PID_ESP32_ANAOUT_POT.ino with Arduino IDE.
+	3.	Compile and upload the sketch:
+	•	Select the correct ESP32 board under Tools > Board.
+	•	Compile and upload the code to the ESP32 DevKit V1.
+Usage
+	1.	Adjust the potentiometer to change the temperature setpoint.
+	2.	Monitor the serial output to check the current temperature and control output.
+	3.	Fine-tune the PID parameters in the code for better performance:
+double Kp = 30.0;  // Proportional gain
+double Ki = 15.0;  // Integral gain
+double Kd = 5.0;   // Derivative gain
+
+  4.	Serial Monitor Output Example:
+
+22.5 C | Setpoint: 23.0 C | Output: 3200 (78%)
+
+  5. Project File Structure
+PID_ESP32_Controller/
+│-- PID_ESP32_ANAOUT_POT.ino  # Main Arduino sketch
+│-- README.md                 # Project documentation
+│-- LICENSE                   # License file 
+
+Troubleshooting
+
+If you encounter issues, check the following:
+	•	Ensure the correct board and COM port are selected in the Arduino IDE.
+	•	Verify wiring connections for the potentiometer and temperature sensor.
+	•	If upload issues occur, try pressing the “BOOT” button on the ESP32 when uploading.
+	•	Adjust the baud rate in the serial monitor to 115200.
+
+ License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Author
+
+Fabio Bridarolli
+GitHub | LinkedIn
+
 Enjoy and feel free to contribute!
+ 
